@@ -1,0 +1,54 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img style="width: 102px; margin-top: 20px;"
+                    src="https://img.memurlar.net/galeri/22487/ab8a4681-b1f1-ec11-8112-a0369f7d1486.jpg?width=800?q=100"
+                    alt="">
+                <h6>Bütün Araçlar</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img style="width: 102px; margin-top: 20px;"
+                    src="https://i.5nhaber.com/uploads/96258/public/13619/hayalinde-suv-arac-olanlara-gerceklestirme-firsati-fiyati-her-butceye-uyuyor-4800.jpg?q=100"
+                    alt="">
+                <h6>SUV Araçlar</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img style="width: 102px; margin-top: 20px;"
+                    src="https://cdn.ototeknikveri.com/Files/News/Big/nissan-genc-nesille-birlikte-sedan-otomobiller-geri-donebilir.jpg?q=100"
+                    alt="">
+                <h6>Sedan Araçlar</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img style="width: 102px; margin-top: 20px;"
+                    src="https://www.bifikir.com/images/content/lamborghini-huracan-1_g3er.webp?q=50" alt="">
+                <h6>Spor Araçlar</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                    {{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                    {{item.description}}</p>
+                <p><strong>Kiralama Ücreti:</strong> ₺{{item.price}}</p>
+                <button style="background-color: black; color: white;" class="btn btn-black"
+                    (click)=addtocart(item)>Sepete
+                    Ekle</button>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

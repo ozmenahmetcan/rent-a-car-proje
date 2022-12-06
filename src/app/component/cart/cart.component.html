@@ -1,0 +1,91 @@
+<ng-container *ngIf="products.length !=0">
+    <div style="margin-top: 10rem;" class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sıra</th>
+                            <th>İsim</th>
+                            <th>Resim</th>
+                            <th>Açıklama</th>
+                            <th>Fiyat</th>
+                            <th>Adet</th>
+                            <th>Toplam</th>
+                            <th>Eylem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                            <td style="width: 25%;">{{item.description}}</td>
+                            <th style="width: 12%;">{{item.price}}</th>
+                            <td style="width: 12%;">{{item.quantity}}</td>
+                            <td style="width: 12%;">{{item.total}}</td>
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger"><i
+                                        class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="emptycart()" class="btn btn-danger">Sepet Temizle</button></td>
+                            <td>
+                                <button routerLink="/products" class="btn btn-primary">Daha fazla</button>
+                            </td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Kirala
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" onclick="myFunction()" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Sipariş Bildirimi
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Siparişiniz oluşturuldu, iyi yolculuklar :) <strong> Ödenen miktar
+                                                    ₺{{grandTotal}}</strong>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary"
+                                                    data-bs-dismiss="modal">Tamam</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><strong>Toplam : ₺{{grandTotal}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">Sepetim</h5>
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+                alt="">
+            <h4>Sepetiniz Boş</h4>
+            <h6>Hemen kirala</h6>
+            <button routerLink="/products" style="border: none" class="btn btn-primary">Kirala</button>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,73 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offert-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt3 font-weight-bold">Kayıt Ol</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form submit="onSignUp()" [formGroup]="signUpForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="firstName" type="text" placeholder="Ad">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')"
+                                class="text-danger">*Ad gerekli!</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpForm.controls['lastName'].dirty && signUpForm.hasError('required', 'lastName')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="lastName" type="text" placeholder="Soyad">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['lastName'].dirty && signUpForm.hasError('required', 'lastName')"
+                                class="text-danger">*Soyad gerekli!</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">
+                                    <span class="fa fa-envelope p-2"></span>
+                                    <input formControlName="email" type="text" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')"
+                                class="text-danger">*E-mail gerekli!</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpForm.controls['userName'].dirty && signUpForm.hasError('required', 'userName')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="userName" type="text" placeholder="Kullanıcı Adı">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['userName'].dirty && signUpForm.hasError('required', 'userName')"
+                                class="text-danger">*Kullanıcı Adı gerekli!</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Şifre">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')"
+                                class="text-danger">*Şifre gerekli!</small>
+                            <button type="submit" style="background-color: black; color:white;"
+                                class="btn btn-black btn-block mt-4 w-100" (click)="onSignUp()">Kayıt Ol</button>
+                            <div class=" text-center pt-4 text-muted">Zaten bir hesabın var mı? <a id="forget"
+                                    routerLink="/login">Oturum Aç</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

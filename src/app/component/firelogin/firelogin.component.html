@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="col"></div>
+            <div class="col-lg-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <h4 class="text-dark text-muted">Giriş yap</h4>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="Mailinizi yazınız.." name="email"
+                                    [(ngModel)]="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Şifre</label>
+                                <input type="password" class="form-control" placeholder="Şifrenizi yazınız.."
+                                    name="password" [(ngModel)]="password">
+                            </div>
+                            <button type="submit" style="background-color: black; color: white;" class="btn btn-black"
+                                (click)="login()">Giriş yap</button>
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="/fireregister" style="text-decoration: none; color:black;">Hesabın mı yok?
+                                        <span class="text-danger">Kayıt ol</span></a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="/forgot-password" class="text-dark" style="text-decoration: none;">Şifremi
+                                        unuttum</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>

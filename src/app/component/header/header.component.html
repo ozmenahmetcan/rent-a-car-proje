@@ -1,0 +1,20 @@
+<header>
+    <div style="background-color: black !important;" class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <strong routerLink="/products" style="font-size: 30px; margin: 0 12px;"><i
+                    style="margin: 0 12px; font-size: 32px;" class="fa-sharp fa-solid fa-car-side"></i> ARABA KİRALA
+                - ANINDA KİRALA</strong>
+            <div style="margin-left:20rem;" class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)"
+                    placeholder="ürün ara">
+            </div>
+
+        </div>
+        <button routerLink="firelogin" style="background-color: black; color: white;" class="btn btn-black">Oturum
+            Aç</button>
+        <button routerLink="cart" style="background-color: black;" class="btn btn-black">
+            <i style="font-size: 30px; color: white;" class="fas fa-cart-shopping"></i>
+            <div style="font-size: 10px;" class="badge bg-secondary">{{totalItem}}</div>
+        </button>
+    </div>
+</header>
